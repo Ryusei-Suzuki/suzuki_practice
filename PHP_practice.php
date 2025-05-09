@@ -74,14 +74,22 @@ $gosanke = [
 
     public function __construct($name, $parsonality)
     {
-      $this -> $nameid = $name;
-      $this -> $parsonalityid = $parsonality;
+      $this -> nameid = $name;
+      $this -> parsonalityid = $parsonality;
+    }
+
+    public function skil($a, $b, $c, $d){
+      echo 'わざ' . "\n" . $this -> $a . "\n" . $this -> $b . "\n" . $this -> $c . "\n" . $this -> $d;
     }
 
   
     }
 
     $coalP = new Pokemon('ヒトカゲ', 'しんちょう');
+    echo 'なまえ：' . $coalP->nameid . "\n" . 'せいかく：' . $coalP->parsonalityid . "\n";
+    $coalP -> skil('たいあたり', 'ひっかく', 'ひのこ', 'なきごえ');
+    
+    
     var_dump($coalP);
 
 
@@ -119,5 +127,38 @@ $gosanke = [
   foreach($hamchans as $hamchan){
     echo $hamchan['鳴き声'] . "、" . $hamchan['一人称'] . "の名前は" . $hamchan['name'] . $hamchan['語尾'] . "\n";
   }
+
+
+$email = 'torichan1207@gmail.com';
+$FILTER_VALIDATE_EMAIL = ($email == '@gmail.com') ? 'メールアドレスOK' : 'メールアドレスの形式が正しくありません';
+echo $FILTER_VALIDATE_EMAIL;
+
+$email = "example@domain";
+echo empty($email) ? "メールアドレスを入力してください" : (!filter_var($email, FILTER_VALIDATE_EMAIL) ? "メールアドレスの形式が正しくありません" : "メールアドレスOK");
+
+$numbers = [10, 20, 30, 40];
+$sum = NULL;
+foreach($numbers as $tag => $num){
+  $sum = $sum + $numbers[$tag];
+}
+echo $sum;
+
+$scores = [45, 70, 55, 90, 100, 35];
+$passed = array();
+foreach($scores as $tag => $score){
+  if ($scores[$tag] > 59){
+    array_push($passed, $scores[$tag]);
+  }
+}
+
+var_dump($passed);
+
+$device = 'mac';
+if($device === 'mac' || $device === 'windows'){
+  echo '使用OSは、' . $device . 'です。';
+} else {
+  echo 'どちらでもありません。';
+}
+
 
 ?>
