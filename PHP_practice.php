@@ -161,4 +161,53 @@ if($device === 'mac' || $device === 'windows'){
 }
 
 
+class User
+{
+    protected $name;
+    public $email;
+
+    public function __construct($paramName, $paramEmail)
+    {
+        $this->name  = $paramName;
+        $this->email = $paramEmail;
+    }
+
+    public function sayHi()
+    {
+        echo 'hi! my name is ' . $this->name;
+    }
+}
+
+class JapaneseUser extends User
+{
+  public function JapaneseGreet()
+    {
+        echo 'こんにちは。';
+    }
+
+    public function sayHi()  // 同じメソッド名で定義し直す
+    {
+      echo 'やぁ!俺は' . $this->name . '!開発王になる男だ！';
+    }
+}
+
+
+$suzuki = new JapaneseUser('suzuki', 'suzuki@example.com');
+$bob = new User('bob', 'bob@example.com');
+
+$suzuki->sayHi();    // 「やぁ！俺はsuzuki！開発王になる男だ！」が出力される
+$bob->sayHi();  
+
+$suzuki->JapaneseGreet();
+
+
+
+
+$bob = new User('bob', 'bob@example.com');
+echo $bob->email;
+
+
+
+
+
 ?>
